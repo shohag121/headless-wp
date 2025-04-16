@@ -11,7 +11,7 @@ type BlocksRendererProps = {
 	settings: HeadlessConfig;
 };
 
-const Blocks: ({html, settings}: { html: any; settings: any }) => Promise<React.JSX.Element> = async ({ html, settings }) => {
+const Blocks: React.FC<BlocksRendererProps> = async ({ html, settings }) => {
 	const { data } = await queryAppSettings();
 
 	return (

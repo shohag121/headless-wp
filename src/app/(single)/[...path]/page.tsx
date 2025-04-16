@@ -56,7 +56,7 @@ const Single = async ({ params }: HeadstartWPRoute) => {
 	const { data, seo, config } = await query({ params });
 
 	return (
-		<article>
+		<article className="is-layout-constrained">
 			<h1>
 				<HtmlDecoder html={data.post.title.rendered ?? ''} />
 			</h1>

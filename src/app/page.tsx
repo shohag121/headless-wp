@@ -28,8 +28,8 @@ const Home = async ({ params }: HeadstartWPRoute) => {
 	const { data, seo, config } = await query({ params });
 
 	return (
-		<main>
-			<div>
+		<main className="is-layout-constrained" style={{marginTop: 'var(--wp--preset--spacing--60)'}}>
+			<div style={{ paddingTop: 'var(--wp--preset--spacing--60)', paddingBottom: 'var(--wp--preset--spacing--60)' }}>
 				<Blocks html={data.post.content.rendered ?? ''} settings={config} />
 			</div>
 
