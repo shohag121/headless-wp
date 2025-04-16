@@ -50,7 +50,7 @@ type ArchiveProps = {
 
 const Archive = ({ posts, queriedObject, schema = '' }: ArchiveProps) => {
 	return (
-		<main>
+		<main className="is-layout-constrained" style={{marginTop: 'var(--wp--preset--spacing--60)'}}>
 			<h1>{queriedObject.term?.name}</h1>
 
 			<ul>
@@ -77,7 +77,7 @@ const BlogPage = async ({ params }: HeadstartWPRoute) => {
 
 	if (isSingle && typeof data.post !== 'undefined') {
 		return (
-			<article>
+			<article className="is-layout-constrained">
 				<h1>
 					<HtmlDecoder html={data.post.title.rendered ?? ''} />
 				</h1>
