@@ -1,6 +1,7 @@
-import type { IBlock, IBlockAttributes} from '@headstartwp/core/react';
+import type {BlockFC, BlockProps, IBlock, IBlockAttributes} from '@headstartwp/core/react';
 
 import { useBlock} from "@headstartwp/core/react";
+import {isBlockByName} from "@headstartwp/core";
 
 export interface MenuButtonBlockProps extends IBlockAttributes {
     displaySecondaryButton: boolean;
@@ -12,8 +13,9 @@ export interface MenuButtonBlockProps extends IBlockAttributes {
 }
 
 export interface IMenuButtonsBlock extends IBlock<MenuButtonBlockProps> {}
-export function MenuButton({domNode: node , children }: Omit<IMenuButtonsBlock, 'component'>) {
-    const { name, className, attributes } = useBlock(node);
+
+export const MenuButton = ({domNode: node , children,  }: Omit<IMenuButtonsBlock, 'component'>) => {
+    const { name, className, attributes } = useBlock<MenuButtonBlockProps>(node);
     const {
         displaySecondaryButton = false,
         isOutlinePrimaryButton = false,
@@ -47,4 +49,6 @@ export function MenuButton({domNode: node , children }: Omit<IMenuButtonsBlock, 
             </a>
         </div>
     );
-}
+};
+
+MenuButton.test = (node: any) => isBlockByName(node, 'shohag/menu-button');

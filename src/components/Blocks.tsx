@@ -25,7 +25,7 @@ const Blocks: React.FC<BlocksRendererProps> = async ({ html, settings }) => {
 			<PostList test={(node) => isBlockByName(node, 'core/query')} />
 			<TwitterBlock />
 			<LinkBlock />
-			<MenuButton test={(node) => isBlockByName(node, 'shohag/menu-button')} />
+			<MenuButton />
 		</BlocksRenderer>
 	);
 };
